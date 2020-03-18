@@ -4,6 +4,10 @@ configserver:
     status: Connected to the JHipster Registry running in Docker
 
 jhipster:
+    security:
+        authentication:
+            jwt:
+                base64-secret: ${jhipster.secret}
     logging:
         logstash: # forward logs to ELK
             enabled: true
@@ -13,6 +17,10 @@ jhipster:
             enabled: true
             report-frequency: 60 # in seconds
 spring:
+    cloud:
+        loadbalancer:
+            ribbon:
+                enabled: false
     zipkin:
         base-url: http://jhipster-zipkin:9411
         enabled: true
